@@ -102,9 +102,19 @@ function Formbmi({ bmi, setbmi, setbmimetric }) {
           <label>Age</label>
           <input
             placeholder="Age"
-            type="text"
+            type="number"
             value={age}
-            onChange={(e) => setAge(Number(e.target.value))}
+            onChange={(e) => {
+              const value = e.target.value;
+              // Check if the input is empty or non-numeric
+              if (value === "" || isNaN(value) || value < 0) {
+                // If it's empty or non-numeric, set the state to an empty string
+                setAge("");
+              } else {
+                // If it's a valid number, parse it to a number and set the state
+                setAge(Number(value));
+              }
+            }}
           />
           <label>Height</label>
           {unit ? (
@@ -112,16 +122,30 @@ function Formbmi({ bmi, setbmi, setbmimetric }) {
               <input
                 className="w-1/2"
                 placeholder="Feet"
-                type="text"
+                type="number"
                 value={feet}
-                onChange={(e) => setFeet(Number(e.target.value))}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  if (value === "" || isNaN(value) || value < 0) {
+                    setFeet("");
+                  } else {
+                    setFeet(Number(value));
+                  }
+                }}
               />
               <input
                 className="w-1/2"
                 placeholder="Inches"
-                type="text"
+                type="number"
                 value={inches}
-                onChange={(e) => setInches(Number(e.target.value))}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  if (value === "" || isNaN(value) || value < 0) {
+                    setInches("");
+                  } else {
+                    setInches(Number(value));
+                  }
+                }}
               />
             </div>
           ) : (
@@ -129,9 +153,16 @@ function Formbmi({ bmi, setbmi, setbmimetric }) {
               <input
                 className="w-full"
                 placeholder=" in cm"
-                type="text"
+                type="number"
                 value={centi}
-                onChange={(e) => setcenti(Number(e.target.value))}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  if (value === "" || isNaN(value) || value < 0) {
+                    setcenti("");
+                  } else {
+                    setcenti(Number(value));
+                  }
+                }}
               />
             </div>
           )}
@@ -142,7 +173,14 @@ function Formbmi({ bmi, setbmi, setbmimetric }) {
             type="number"
             value={weight}
             step="any"
-            onChange={(e) => setWeight(parseFloat(e.target.value))}
+            onChange={(e) => {
+              const value = e.target.value;
+              if (value === "" || isNaN(value) || value < 0) {
+                setWeight("");
+              } else {
+                setWeight(parseFloat(value));
+              }
+            }}
           />
           <button className="button" type="submit">
             Calculate
@@ -168,10 +206,10 @@ function Result({ bmi }) {
         "Other Units" tab to convert units into either US or metric units.
       </p>
       <ul className="text-base">
-        <li>Underweight: BMI less than 18.5</li>
-        <li>Normal weight: BMI from 18.5 to 24.9</li>
-        <li>Overweight: BMI from 25 to 29.9</li>
-        <li>Obesity: BMI 30 or higher</li>
+        <li>➡️ Underweight: BMI less than 18.5</li>
+        <li>➡️ Normal weight: BMI from 18.5 to 24.9</li>
+        <li>➡️ Overweight: BMI from 25 to 29.9</li>
+        <li>➡️ Obesity: BMI 30 or higher</li>
       </ul>
     </div>
   );
