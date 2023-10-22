@@ -168,10 +168,10 @@ function Result({ bmi }) {
         "Other Units" tab to convert units into either US or metric units.
       </p>
       <ul className="text-base">
-        <li>Healthy BMI range: 18.5 kg/m2 - 25 kg/m2</li>
-        <li>Healthy weight for the height: 128.9 lbs - 174.2 lbs</li>
-        <li>BMI Prime: 0.92</li>
-        <li>Ponderal Index: 12.9 kg/m3</li>
+        <li>Underweight: BMI less than 18.5</li>
+        <li>Normal weight: BMI from 18.5 to 24.9</li>
+        <li>Overweight: BMI from 25 to 29.9</li>
+        <li>Obesity: BMI 30 or higher</li>
       </ul>
     </div>
   );
