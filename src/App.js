@@ -44,7 +44,7 @@ export default App;
 function Formbmi({ bmi, setbmi, setbmimetric }) {
   const [age, setAge] = useState("");
   const [feet, setFeet] = useState("");
-  const [inches, setInches] = useState(0);
+  const [inches, setInches] = useState("");
   const [weight, setWeight] = useState("");
 
   const [centi, setcenti] = useState("");
@@ -66,7 +66,7 @@ function Formbmi({ bmi, setbmi, setbmimetric }) {
   function handleusunit() {
     setunit(() => true);
     setAge("");
-    setInches(0);
+    setInches("");
     setWeight("");
     setFeet("");
   }
