@@ -28,7 +28,7 @@ function App() {
   }
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col justify-center h-screen">
       <Formbmi
         bmi={bmi}
         setbmi={calculateBMIUS}
@@ -79,7 +79,7 @@ function Formbmi({ bmi, setbmi, setbmimetric }) {
   }
 
   return (
-    <div className="lg:h-1/2  flex flex-col md:flex-row justify-center">
+    <div className=" h-[50%] flex flex-col md:flex-row justify-center p-5">
       <div className=" md:p-10 p-5 text-center md:text-start md:flex md:items-center">
         <h1 className="hidden md:block md:text-6xl text-2xl">
           BMI <br /> CALCULATOR
@@ -191,7 +191,7 @@ function Formbmi({ bmi, setbmi, setbmimetric }) {
 
 function Result({ bmi }) {
   return (
-    <div className="lg:h-1/2 bg-black flex flex-col text-white gap-6 p-16">
+    <div className="h-[50%] bg-black flex flex-col text-white gap-6 p-16">
       <h2 className="text-3xl">
         {bmi
           ? `Your BMI is ${bmi.toFixed(2)} kg/m2`
