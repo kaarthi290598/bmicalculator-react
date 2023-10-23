@@ -79,15 +79,15 @@ function Formbmi({ bmi, setbmi, setbmimetric }) {
   }
 
   return (
-    <div className="lg:h-1/2 w-[full] flex flex-col md:flex-row justify-center">
-      <div className="flex items-center justify-center p-10">
+    <div className="lg:h-1/2  flex flex-col md:flex-row justify-center">
+      <div className=" md:p-10 p-5 text-center md:text-start md:flex md:items-center">
         <h1 className="hidden md:block md:text-6xl text-2xl">
           BMI <br /> CALCULATOR
         </h1>
         <h1 className="block md:hidden text-4xl">BMI CALCULATOR</h1>
       </div>
-      <div className=" p-6 flex flex-col gap-8 justify-center items-center ">
-        <div className="flex gap-4">
+      <div className=" p-6 flex flex-col gap-8 justify-center ">
+        <div className="flex gap-4 justify-center items-center">
           <button className="button" onClick={handleusunit}>
             US UNIT
           </button>
@@ -96,7 +96,7 @@ function Formbmi({ bmi, setbmi, setbmimetric }) {
           </button>
         </div>
         <form
-          className="grid md:grid-cols-[40%_60%] md:gap-6 gap-3 w-full"
+          className="grid grid-cols-[auto_1fr] md:grid-cols-[auto_auto] lg:grid-cols-[auto_20rem]  md:gap-6 gap-3  "
           onSubmit={handleSubmit}
         >
           <label>Age</label>
@@ -149,27 +149,25 @@ function Formbmi({ bmi, setbmi, setbmimetric }) {
               />
             </div>
           ) : (
-            <div className="w-full">
-              <input
-                className="w-full"
-                placeholder=" in cm"
-                type="number"
-                value={centi}
-                onChange={(e) => {
-                  const value = e.target.value;
-                  if (value === "" || isNaN(value) || value < 0) {
-                    setcenti("");
-                  } else {
-                    setcenti(Number(value));
-                  }
-                }}
-              />
-            </div>
+            <input
+              className=""
+              placeholder=" in cm"
+              type="number"
+              value={centi}
+              onChange={(e) => {
+                const value = e.target.value;
+                if (value === "" || isNaN(value) || value < 0) {
+                  setcenti("");
+                } else {
+                  setcenti(Number(value));
+                }
+              }}
+            />
           )}
 
           <label>Weight</label>
           <input
-            placeholder="Weight"
+            placeholder={`${unit ? "weight in pounds" : "weight in Kilograms"}`}
             type="number"
             value={weight}
             step="any"
@@ -182,7 +180,7 @@ function Formbmi({ bmi, setbmi, setbmimetric }) {
               }
             }}
           />
-          <button className="button" type="submit">
+          <button className="button col-start-2 col-end-3" type="submit">
             Calculate
           </button>
         </form>
@@ -202,8 +200,8 @@ function Result({ bmi }) {
       <p className="text-base">
         The Body Mass Index (BMI) Calculator can be used to calculate BMI value
         and corresponding weight status while taking age into consideration. Use
-        the "Metric Units" tab for the International System of Units or the
-        "Other Units" tab to convert units into either US or metric units.
+        the "Metric Units" tab for the International System of Units or the "US
+        Units" tab for US (pound based) unit.
       </p>
       <ul className="text-base">
         <li>➡️ Underweight: BMI less than 18.5</li>
