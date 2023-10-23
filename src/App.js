@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import { BsFillArrowRightCircleFill } from "react-icons/bs";
 
 function App() {
   // const [age, setAge] = useState("");
@@ -28,13 +29,15 @@ function App() {
   }
 
   return (
-    <div className="h-[100dvh] custom-mobile-landscape">
+    <div className="">
       <Formbmi
         bmi={bmi}
         setbmi={calculateBMIUS}
         setbmimetric={calculateBMImetric}
       />
       <Result bmi={bmi} />
+
+      <BMIFacts />
     </div>
   );
 }
@@ -79,7 +82,7 @@ function Formbmi({ bmi, setbmi, setbmimetric }) {
   }
 
   return (
-    <div className="md:h-1/2 flex flex-col md:flex-row justify-center p-5">
+    <div className=" flex flex-col md:flex-row justify-center p-5">
       <div className=" md:p-5 lg:p-10 p-5 text-center md:text-start md:flex md:items-center">
         <h1 className="hidden md:block md:text-5xl lg:text-6xl  text-2xl">
           BMI <br /> CALCULATOR
@@ -96,7 +99,7 @@ function Formbmi({ bmi, setbmi, setbmimetric }) {
           </button>
         </div>
         <form
-          className=" flex flex-col sm:grid sm:grid-cols-[auto_auto] md:grid-cols-[auto_auto] lg:grid-cols-[auto_20rem]  md:gap-6 gap-3  "
+          className=" flex flex-col sm:grid sm:grid-cols-[auto_auto] md:grid-cols-[auto_20rem] lg:grid-cols-[auto_20rem]  md:gap-6 gap-3  "
           onSubmit={handleSubmit}
         >
           <label>Age</label>
@@ -191,7 +194,7 @@ function Formbmi({ bmi, setbmi, setbmimetric }) {
 
 function Result({ bmi }) {
   return (
-    <div className="md:h-1/2 bg-black flex flex-col justify-center text-white gap-4 md:gap-9  p-10">
+    <div className=" bg-black flex flex-col justify-center text-white gap-4 md:gap-9 p-8 md:p-20">
       <h2 className="text-2xl md:text-3xl">
         {bmi
           ? `Your BMI is ${bmi.toFixed(2)} kg/m2`
@@ -205,10 +208,44 @@ function Result({ bmi }) {
       </p>
       <h3 className="text-xl md:text-2xl">BMI Range</h3>
       <ul className="text-sm md:text-base">
-        <li>➡️ Underweight: BMI less than 18.5</li>
-        <li>➡️ Normal weight: BMI from 18.5 to 24.9</li>
-        <li>➡️ Overweight: BMI from 25 to 29.9</li>
-        <li>➡️ Obesity: BMI 30 or higher</li>
+        <li className="flex items-center gap-3">
+          <BsFillArrowRightCircleFill /> Underweight: BMI less than 18.5
+        </li>
+        <li className="flex items-center gap-3">
+          <BsFillArrowRightCircleFill /> Normal weight: BMI from 18.5 to 24.9
+        </li>
+        <li className="flex items-center gap-3">
+          <BsFillArrowRightCircleFill /> Overweight: BMI from 25 to 29.9
+        </li>
+        <li className="flex items-center gap-3">
+          <BsFillArrowRightCircleFill /> Obesity: BMI 30 or higher
+        </li>
+      </ul>
+    </div>
+  );
+}
+
+function BMIFacts() {
+  const bmiFacts = [
+    "BMI is a measurement that combines both height and weight to assess if a person has a healthy body weight.",
+    "It is calculated by dividing a person's weight in kilograms by the square of their height in meters.",
+    "BMI is used as a screening tool to categorize individuals into different weight status categories, such as underweight, normal weight, overweight, and obesity.",
+    "While BMI is a useful screening tool, it does not directly measure body fat or health. Other factors like muscle mass and distribution of fat are not considered in BMI calculations.",
+    "BMI categories may vary for different age groups and populations. For example, BMI charts for children and teenagers take into account their age and sex.",
+    "BMI is widely used by healthcare professionals and researchers to study and analyze population health trends related to weight and obesity.",
+  ];
+  return (
+    <div className="flex flex-col gap-4 p-8 md:p-20">
+      <h2 className="text-3xl">Interesting Facts About BMI</h2>
+      <ul className="text-base flex flex-col gap-4">
+        {bmiFacts.map((fact, index) => (
+          <li
+            className="grid grid-cols-[auto_1fr] items-center  gap-4"
+            key={index}
+          >
+            <BsFillArrowRightCircleFill className=" self-start" /> {fact}
+          </li>
+        ))}
       </ul>
     </div>
   );
