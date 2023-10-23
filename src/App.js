@@ -28,7 +28,7 @@ function App() {
   }
 
   return (
-    <div className="h-full md:h-screen landscape:h-full">
+    <div className="h-full sm:h-screen ">
       <Formbmi
         bmi={bmi}
         setbmi={calculateBMIUS}
@@ -84,7 +84,7 @@ function Formbmi({ bmi, setbmi, setbmimetric }) {
         <h1 className="hidden md:block md:text-5xl lg:text-6xl  text-2xl">
           BMI <br /> CALCULATOR
         </h1>
-        <h1 className="block md:hidden text-4xl">BMI CALCULATOR</h1>
+        <h1 className="block md:hidden text-3xl">BMI CALCULATOR</h1>
       </div>
       <div className=" p-6 flex flex-col gap-8 justify-center ">
         <div className="flex gap-4 justify-center items-center">
@@ -96,7 +96,7 @@ function Formbmi({ bmi, setbmi, setbmimetric }) {
           </button>
         </div>
         <form
-          className="grid grid-cols-[auto_auto] md:grid-cols-[auto_auto] lg:grid-cols-[auto_20rem]  md:gap-6 gap-3  "
+          className=" flex flex-col sm:grid sm:grid-cols-[auto_auto] md:grid-cols-[auto_auto] lg:grid-cols-[auto_20rem]  md:gap-6 gap-3  "
           onSubmit={handleSubmit}
         >
           <label>Age</label>
