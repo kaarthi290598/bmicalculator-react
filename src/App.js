@@ -80,8 +80,8 @@ function Formbmi({ bmi, setbmi, setbmimetric }) {
 
   return (
     <div className=" h-[50%] flex flex-col md:flex-row justify-center p-5">
-      <div className=" md:p-10 p-5 text-center md:text-start md:flex md:items-center">
-        <h1 className="hidden md:block md:text-6xl text-2xl">
+      <div className=" md:p-5 lg:p-10 p-5 text-center md:text-start md:flex md:items-center">
+        <h1 className="hidden md:block md:text-5xl lg:text-6xl  text-2xl">
           BMI <br /> CALCULATOR
         </h1>
         <h1 className="block md:hidden text-4xl">BMI CALCULATOR</h1>
@@ -191,19 +191,20 @@ function Formbmi({ bmi, setbmi, setbmimetric }) {
 
 function Result({ bmi }) {
   return (
-    <div className="h-[50%] bg-black flex flex-col text-white gap-6 p-16">
-      <h2 className="text-3xl">
+    <div className="h-[50%] bg-black flex flex-col justify-center text-white gap-4 md:gap-9  p-10">
+      <h2 className="text-2xl md:text-3xl">
         {bmi
           ? `Your BMI is ${bmi.toFixed(2)} kg/m2`
           : "Enter details to calculate the BMI - Results will be displayed here"}
       </h2>
-      <p className="text-base">
+      <p className="md:text-base">
         The Body Mass Index (BMI) Calculator can be used to calculate BMI value
         and corresponding weight status while taking age into consideration. Use
         the "Metric Units" tab for the International System of Units or the "US
         Units" tab for US (pound based) unit.
       </p>
-      <ul className="text-base">
+      <h3 className="text-xl md:text-2xl">BMI Range</h3>
+      <ul className="text-sm md:text-base">
         <li>➡️ Underweight: BMI less than 18.5</li>
         <li>➡️ Normal weight: BMI from 18.5 to 24.9</li>
         <li>➡️ Overweight: BMI from 25 to 29.9</li>
