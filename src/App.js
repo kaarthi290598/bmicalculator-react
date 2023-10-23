@@ -28,7 +28,7 @@ function App() {
   }
 
   return (
-    <div className="h-full sm:h-screen ">
+    <div className="h-full sm:h-screen custom-mobile-landscape  ">
       <Formbmi
         bmi={bmi}
         setbmi={calculateBMIUS}
@@ -79,7 +79,7 @@ function Formbmi({ bmi, setbmi, setbmimetric }) {
   }
 
   return (
-    <div className=" h-[50%] flex flex-col md:flex-row justify-center p-5">
+    <div className="h-1/2 flex flex-col md:flex-row justify-center p-5">
       <div className=" md:p-5 lg:p-10 p-5 text-center md:text-start md:flex md:items-center">
         <h1 className="hidden md:block md:text-5xl lg:text-6xl  text-2xl">
           BMI <br /> CALCULATOR
@@ -191,7 +191,7 @@ function Formbmi({ bmi, setbmi, setbmimetric }) {
 
 function Result({ bmi }) {
   return (
-    <div className="h-[50%] bg-black flex flex-col justify-center text-white gap-4 md:gap-9  p-10">
+    <div className="h-1/2 bg-black flex flex-col justify-center text-white gap-4 md:gap-9  p-10">
       <h2 className="text-2xl md:text-3xl">
         {bmi
           ? `Your BMI is ${bmi.toFixed(2)} kg/m2`

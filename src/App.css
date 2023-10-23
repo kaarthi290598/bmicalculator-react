@@ -9,3 +9,9 @@ input {
 input {
   appearance: textfield;
 }
+
+@media (max-width: 915px) and (orientation: landscape) {
+  .custom-mobile-landscape {
+    height: 100%;
+  }
+}
