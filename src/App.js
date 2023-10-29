@@ -243,11 +243,11 @@ function BMIFacts() {
       <ul className="text-base flex flex-col gap-4">
         {bmiFacts.map((fact, index) => (
           <li
-            className="grid grid-cols-[auto_1fr] items-center gap-4"
+            className="grid grid-cols-[auto_1fr] items-start gap-4"
             key={index}
           >
-            <span>
-              <BsFillArrowRightCircleFill className=" self-center" />{" "}
+            <span className="mt-1">
+              <BsFillArrowRightCircleFill className="" />{" "}
             </span>
             <p>{fact}</p>
           </li>
