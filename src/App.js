@@ -206,8 +206,11 @@ function Result({ bmi }) {
         the "Metric Units" tab for the International System of Units or the "US
         Units" tab for US (pound based) unit.
       </p>
-      <h3 className="text-xl md:text-2xl">BMI Range</h3>
-      <ul className="text-sm md:text-base">
+
+      <ul className="text-sm md:text-base flex flex-col gap-4">
+        <li>
+          <h3 className="text-xl md:text-2xl">BMI Range</h3>
+        </li>
         <li className="flex items-center gap-3">
           <BsFillArrowRightCircleFill /> Underweight: BMI less than 18.5
         </li>
@@ -240,10 +243,13 @@ function BMIFacts() {
       <ul className="text-base flex flex-col gap-4">
         {bmiFacts.map((fact, index) => (
           <li
-            className="grid grid-cols-[auto_1fr] items-center  gap-4"
+            className="grid grid-cols-[auto_1fr] items-center gap-4"
             key={index}
           >
-            <BsFillArrowRightCircleFill className=" self-start" /> {fact}
+            <span>
+              <BsFillArrowRightCircleFill className=" self-center" />{" "}
+            </span>
+            <p>{fact}</p>
           </li>
         ))}
       </ul>
